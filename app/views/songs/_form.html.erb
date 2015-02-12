@@ -12,18 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
     <%= f.text_field :title %>
-  </div>
+  </div><br />
+
   <div class="field">
-    <%= f.label :artist_id %><br>
+    <% if @artists == nil %>
+      <p>by: <%= @artist.name %></p>
+      <div class="cant-see-me"><%= f.number_field(:artist_id, value:@artist.id) %></div>
+    <%else %>
     <%= f.select(:artist_id, @artists.collect {|a| [ a.name, a.id ] }, {:include_blank => 'Please select an artist'}) %>
-  </div>
+    <%end%>
+  </div><br />
+
   <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.select :rating, (1..10) %>
-  </div>
+    <%= f.label "Rating " %>&nbsp;&nbsp;<%= f.select :rating, (1..10) %>
+  </div><br />
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Rock!", class: "btn" %>
   </div>
 <% end %>

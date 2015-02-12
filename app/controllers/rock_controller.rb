@@ -4,5 +4,6 @@ class RockController < ApplicationController
   end
 
   def codex
+  	@artist = Artist.find(2)
   end
 end

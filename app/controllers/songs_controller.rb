@@ -14,8 +14,12 @@ class SongsController < ApplicationController
 
   # GET /songs/new
   def new
+    if params[:artist_id] == nil
+      @artists = Artist.all
+    else
+      @artist = Artist.find(params[:artist_id])
+    end
     @song = Song.new
-    @artists = Artist.all
   end
 
   # GET /songs/1/edit

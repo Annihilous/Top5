@@ -11,10 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :artist %><br>
+  <div class="field"><br />
     <%= f.text_field :name %>
   </div><br />
+  <div class="field">
+    <%= f.label "Rating " %>&nbsp;&nbsp;<%= f.select :rating, (1..10) %>
+  </div><br />
+
   <div class="actions">
     <%= f.submit "Rock!", class: "btn" %>
   </div>
