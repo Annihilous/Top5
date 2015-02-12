@@ -5,31 +5,31 @@
 <span class="glyphicon glyphicon-plus"></span>Add
 <%end%>
 <br /><br />
-
+  <% @songs.each_slice(2) do | songs | %>
     <div class="row">
-    <% @songs.each do |song| %> 
-    <div class="col-md-6">
-      <div class="well">
-        <h2><%= link_to song.title, song %></h2>
-        <p>by <strong><%= link_to song.artist.name, song.artist %></strong></p>
-        <p>Rating: &nbsp;
-          <% song.rating.times do %>
-            <span class="glyphicon glyphicon-star"></span>
-          <%end%>
-        </p>
-        <p>
-          <%= link_to edit_song_path(song) do %>
-            <span class="glyphicon glyphicon-pencil"></span>
-          <%end%> &nbsp; | &nbsp;
-          <%= link_to song, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <span class="glyphicon glyphicon-trash"></span>
-            <%end%>
-        </p>
-      </div>
+      <% songs.each do |song| %> 
+        <div class="col-md-6">
+          <div class="well">
+            <h2><%= link_to song.title, song %></h2>
+            <p>by <strong><%= link_to song.artist.name, song.artist %></strong></p>
+            <p>Rating: &nbsp;
+              <% song.rating.times do %>
+                <span class="glyphicon glyphicon-star"></span>
+              <%end%>
+            </p>
+            <p>
+              <%= link_to edit_song_path(song) do %>
+                <span class="glyphicon glyphicon-pencil"></span>
+              <%end%> &nbsp; | &nbsp;
+              <%= link_to song, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <span class="glyphicon glyphicon-trash"></span>
+                <%end%>
+            </p>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
-
+  <%end%>
 
 <br>
 
