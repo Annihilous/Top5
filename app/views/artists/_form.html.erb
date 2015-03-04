@@ -18,6 +18,10 @@
     <%= f.label "Rating " %>&nbsp;&nbsp;<%= f.select :rating, (1..10) %>
   </div><br />
 
+  <div class="field" style="align:center">
+    <%= f.file_field :avatar %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Rock!", class: "btn" %>
   </div>

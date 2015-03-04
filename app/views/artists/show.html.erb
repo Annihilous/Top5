@@ -10,6 +10,8 @@
             <span class="glyphicon glyphicon-plus"></span>
           <%end%>
 
+        <p><%= image_tag @artist.avatar.url(:medium) %></p>
+
         <p>Rating: <% @artist.rating.times do %>
           <span class="glyphicon glyphicon-star"></span>
           <% end %>
